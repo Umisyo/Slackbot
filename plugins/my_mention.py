@@ -2,7 +2,7 @@
 from slackbot.bot import respond_to     # @botname: で反応するデコーダ
 from slackbot.bot import listen_to      # チャネル内発言で反応するデコーダ
 from slackbot.bot import default_reply  # 該当する応答がない場合に反応するデコーダ
-
+from　datetime import datetime
 from libs import my_functions           # 外部関数の読み込み
 
 # @respond_to('string')     bot宛のメッセージ
@@ -22,6 +22,11 @@ from libs import my_functions           # 外部関数の読み込み
 #                              文字列中に':'はいらない
 
 Kadai_ls = []
+
+date_now = datetime.now()
+def new_year(date_now, message):
+    if int(date_now.month) == 1 and int(date_now.day) == 1:
+        message.reply('Happy new year!')
 
 #課題一覧
 @respond_to('kadai')
